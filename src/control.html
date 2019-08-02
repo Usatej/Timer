@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="../css/control.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="switch-wrapper">
+    <input id="switchCheckbox" type="checkbox">
+    <label for="switchCheckbox" class="switch"></label>
+  </div>
+  <div class="drag-area"></div>
+  <div class="top-right-menu">
+    <button id="btn-display" type="button" class="btn btn-success">Otevřít display</button>
+    <button id="btn-exit" type="button" class="btn btn-outline-danger">Konec</button>
+  </div>
+  <div class="nav">
+    <ul class="nav-list">
+      <li class="nav-list__item nav-list__item--active"><a linkto="main" class="nav-list__link nav-list__link--active"
+          href="#">Hlavní</a></li>
+      <li class="nav-list__item"><a linkto="colors" class="nav-list__link" href="#">Nastavní barev</a></li>
+      <li class="nav-list__item"><a linkto="arduino" class="nav-list__link" href="#">Arduino</a></li>
+    </ul>
+  </div>
+
+  <!-- TABS -->
+
+  <div id="main" class="tab tab--active">
+    <p>Main</p>
+  </div>
+
+  <div id="colors" class="tab">
+      <p>Barvy</p>
+  </div>
+
+  <div id="arduino" class="tab">
+      <p>Arduino</p>
+  </div>
+
+  <script src="../node_modules/jquery/dist/jquery.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
+
+  <script src="./control.js"></script>
+  <script src="./scripts/navbar.js"></script>
+</body>
+
+</html>

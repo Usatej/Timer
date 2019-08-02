@@ -1,0 +1,52 @@
+@import "./variables";
+@import "./dayNightToggle";
+@import "./navbar";
+@import "./tab.scss";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 100%;
+}
+
+.drag-area {
+  width: calc(100% - 10px);
+  height: 10px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  -webkit-app-region: drag;
+}
+
+.nodrag-area {
+  -webkit-app-region: no-drag;
+}
+
+html body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  background-color: $color-background;
+  box-sizing: border-box;
+}
+
+.top-right-menu {
+  width: auto;
+  height: auto;
+  z-index: 2000;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}

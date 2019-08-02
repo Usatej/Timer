@@ -1,0 +1,33 @@
+.time-table {
+  background-color: #000;
+  width: 12rem;
+  padding: 2rem;
+  border-color: red;
+  border-style: solid;
+  border-width: 1rem;
+  align-content: center;
+  text-align: center;
+  box-shadow: 0 0 2rem red; }
+  .time-table .time {
+    margin: auto;
+    color: red;
+    font-size: 10rem;
+    display: block;
+    box-shadow: inset 0 0 1rem red; }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 100%; }
+
+html body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  background-color: #0f0e0e;
+  box-sizing: border-box; }
