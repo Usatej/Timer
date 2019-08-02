@@ -1,5 +1,5 @@
 @import "./variables";
-@import "./time-table.scss";
+@import "./time-table-moving.scss";
 
 *,
 *::after,
@@ -19,4 +19,11 @@ html body {
   line-height: 1.7;
   background-color: $color-background;
   box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'digital-7';
+  src: url('../assets//digital-7.regular.ttf');
+  font-style: normal;
+  font-weight: 400;
 }

@@ -18,33 +18,29 @@ btnDisplay.addEventListener('click', function (event) {
     const modalPath = path.join('file://', __dirname, 'display.html');
 
     display = new BrowserWindow({
-        width: 600,
-        height: 600
+        width: 1366,
+        height: 768
     });
 
     if (!globalShortcut.isRegistered('CommandOrControl+Enter')) {
         globalShortcut.register('CommandOrControl+Enter', () => {
             if (display !== null) display.setFullScreen(!display.isFullScreen());
         });
-
-        globalShortcut.register('CommandOrControl+Shift+O', () => {
-            if (display !== null) display.webContents.toggleDevTools();
-        })
     }
 
     if (!globalShortcut.isRegistered('CommandOrControl+Shift+O')) {
-        
-
         globalShortcut.register('CommandOrControl+Shift+O', () => {
             if (display !== null) display.webContents.toggleDevTools();
-        })
+        });
     }
-
+    
     display.on('close', function () {
         display = null;
         btnDisplay.disabled = false;
         globalShortcut.unregister('CommandOrControl+Enter');
         globalShortcut.unregister('CommandOrControl+Shift+O');
+        globalShortcut.unregister('CommandOrControl+Shift+L');
+
     });
     display.loadURL(modalPath);
 

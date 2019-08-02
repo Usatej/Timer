@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,67 @@
 </head>
 
 <body>
-  <div class="time-table">
-    <text class="time">00:18:35</text>
+  <!--
+  <div class="container-fluid">
+    <div class="row">
+      <div class="table-container">
+        <label>Levý</label>
+        <div class="time-table">
+          <text class="time">00:18:35</text>
+        </div>
+      </div>
+      <div class="table-container">
+        <label>Pravý</label>
+        <div class="time-table">
+          <text class="time">00:18:35</text>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="table-container">
+            <label>Výsledný</label>
+            <div class="time-table">
+              <text class="time">00:18:35</text>
+            </div>
+          </div>
+    </div>
+  </div>-->
+
+  <div>
+    <div class="container-fluid vertical-center">
+      <div class="row">
+        <div class="table-container table-container--left table-container--left--running">
+          <label>Levý</label>
+          <div class="time-table">
+            <text class="time">00:18:35</text>
+          </div>
+        </div>
+        <div class="table-container table-container--right table-container--right--running">
+          <label>Pravý</label>
+          <div class="time-table">
+            <text class="time">00:18:35</text>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+      </div>
+    </div>
   </div>
 
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="./display.js"></script>
+  <script src="scripts/fontResize.js"></script>
+
+  <script>
+    document.onload = function () {
+      setTimeout(function () {
+
+        console.log("LoL");
+        $('.table-container--right').removeClass('table-container--right--running');
+        $('.table-container--left').removeClass('table-container--left--running');
+      }, 3000);
+    };
+  </script>
 </body>
 
 </html>
