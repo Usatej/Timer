@@ -1,3 +1,5 @@
+const $ = require('jquery');
+
 $(document).ready(function () {
     var holdWidth = $(window).width();
     var holdHeight = $(window).height();

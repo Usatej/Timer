@@ -34,10 +34,22 @@
 
   <div id="main" class="tab tab--active">
     <p>Main</p>
+    <button id="btn-timer-toggle" type="button">Toggle timer</button> 
+    <button id="btn-times-start" type="button">Times Start</button> 
+    <button id="btn-times-stop" type="button">Times Stop</button>
+    <button id="btn-times-prepare" type="button">Times Prepare</button> 
+    <button id="btn-times-stop-left" type="button">Time Stop Left</button> 
+    <button id="btn-times-stop-right" type="button">Time Stop Right</button> 
+
   </div>
 
   <div id="colors" class="tab">
       <p>Barvy</p>
+      <input id="timer-minutes" type="number" name="quantity" min="0"> 
+      <input id="timer-seconds" type="number" name="quantity" min="0" max="59"> 
+
+      <button id="btn-timer-run" type="button">Run timer</button> 
+      <button id="btn-timer-set" type="button">Set timer</button> 
   </div>
 
   <div id="arduino" class="tab">

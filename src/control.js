@@ -1,25 +1,49 @@
-const electron = require('electron');
-const path = require('path');
-const app = electron.remote.app;
-const Menu = electron.remote.menu;
-const globalShortcut = electron.remote.globalShortcut;
-const BrowserWindow = electron.remote.BrowserWindow;
+const remote = require('electron').remote;
+const msgs = require('./constants');
+const app = remote.app;
+const Menu = remote.menu;
+const globalShortcut = remote.globalShortcut;
+const BrowserWindow = remote.BrowserWindow;
+const ClassicDisplay = require('./display_modules/classic/classicModule');
+const TimerDisplay = require('./display_modules/timer/timerModule');
 
-const btnExit = document.querySelector('#btn-exit');
+const displayModule = {
+    CLASSIC: 'display_classic',
+    TIMER: 'display_timer'
+};
+
+let actDisplay = {
+    module: null,
+    type: null
+}
+
 const btnDisplay = document.querySelector('#btn-display');
+const btnToggleTimer = document.querySelector("#btn-timer-toggle");
 
-let display = null;
 
-btnExit.addEventListener('click', function (event) {
-    app.quit();
+btnToggleTimer.addEventListener('click', function (event) {
+    if (actDisplay.module !== null) {
+        if (actDisplay.type === displayModule.CLASSIC) {
+            actDisplay.module = new TimerDisplay();
+            actDisplay.type = displayModule.TIMER;
+            actDisplay.module.init(display);
+        } else if (actDisplay.type === displayModule.TIMER) {
+            actDisplay.module = new ClassicDisplay();
+            actDisplay.type = displayModule.CLASSIC;
+            actDisplay.module.init(display);
+        }
+    }
 });
 
 btnDisplay.addEventListener('click', function (event) {
-    const modalPath = path.join('file://', __dirname, 'display.html');
 
+    let parWin = remote.getCurrentWindow();
     display = new BrowserWindow({
         width: 1366,
-        height: 768
+        height: 768,
+        webPreferences: {
+            nodeIntegration: true
+        }
     });
 
     if (!globalShortcut.isRegistered('CommandOrControl+Enter')) {
@@ -33,7 +57,7 @@ btnDisplay.addEventListener('click', function (event) {
             if (display !== null) display.webContents.toggleDevTools();
         });
     }
-    
+
     display.on('close', function () {
         display = null;
         btnDisplay.disabled = false;
@@ -42,9 +66,11 @@ btnDisplay.addEventListener('click', function (event) {
         globalShortcut.unregister('CommandOrControl+Shift+L');
 
     });
-    display.loadURL(modalPath);
 
-    display.setMenu(null);
+    actDisplay.module = new ClassicDisplay();
+    actDisplay.type = displayModule.CLASSIC;
+    actDisplay.module.init(display);
+
     display.show();
 
     if (display !== null) {

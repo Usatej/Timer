@@ -5,9 +5,9 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "compile:sass": "node-sass ./sass/control/control.scss ./css/control.css && node-sass ./sass/display/display.scss ./css/display.css",
+    "compile:sass": "node-sass ./sass/control/control.scss ./css/control.css && node-sass ./sass/classic/classic.scss ./css/classic.css",
     "watch:control": "node-sass ./sass/control/control.scss ./css/control.css --watch",
-    "watch:display": "node-sass ./sass/display/display.scss ./css/display.css --watch",
+    "watch:classic": "node-sass ./sass/classic/classic.scss ./css/classic.css --watch",
     "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Tutorial App\""
   },
   "repository": "https://github.com/electron/electron-quick-start",
